@@ -1,12 +1,14 @@
 import { useRef, useState } from "react";
 import "./App.scss";
 import Library from "./components/Library";
+import Nav from "./components/Nav";
 import Player from "./components/Player";
 import Song from "./components/Song";
 import Musicdata from "./Musicdata";
 
 function App() {
   const audioRef = useRef(null);
+
   const [songs, setSongs] = useState(Musicdata());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setPlaying] = useState(false);
@@ -14,6 +16,8 @@ function App() {
     currunt: 0,
     duration: 0,
   });
+
+  const [status, setStatus] = useState(false);
 
   const timeUpdateHandler = (e) => {
     const currunt = e.target.currentTime;
@@ -23,8 +27,13 @@ function App() {
   };
   return (
     <div className="container">
-      <div className="container-padding">
-        <Song currentSong={currentSong} />
+      <div className={`container-padding ${status ? 'ml' : ''}`}>
+        <Nav
+        status={status}
+        setStatus={setStatus}
+        />
+        <Song currentSong={currentSong} 
+        isPlaying={isPlaying}/>
         <Player
           isPlaying={isPlaying}
           setPlaying={setPlaying}
@@ -33,6 +42,9 @@ function App() {
           setSongInfo={setSongInfo}
           songInfo={songInfo}
           timeUpdateHandler={timeUpdateHandler}
+          songs={songs}
+          setCurrentSong={setCurrentSong}
+          setSongs={setSongs}
         />
       </div>
       <Library
@@ -40,6 +52,8 @@ function App() {
         setCurrentSong={setCurrentSong}
         audioRef={audioRef}
         isPlaying={isPlaying}
+        setSongs={setSongs}
+        status={status}
       />
     </div>
   );

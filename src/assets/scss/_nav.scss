@@ -1,0 +1,25 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 20px;
+
+  button {
+    padding: 8px 20px;
+    background: linear-gradient(38deg, #121434 0%, #3b2239 51%, #3c1e21 100%);
+    border: 1px solid #121434;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    border-radius: 6px;
+    color: #fff;
+
+    &:hover {
+      background: linear-gradient(38deg, #3c1e21 0%, #3b2239 51%, #121434 100%);
+      color: #fff;
+    }
+  }
+}
+
+.fa {
+  margin-left: 10px;
+}

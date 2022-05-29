@@ -6,8 +6,8 @@
   justify-content: center;
 
   img {
-    width: 15%;
-    border-radius:10%;
+    width: 20%;
+    border-radius:50%;
   }
 
   h2 {
@@ -28,4 +28,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.imgAnim {
+  animation: animation infinite 50s linear;
+}
+
+@keyframes animation {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
 }

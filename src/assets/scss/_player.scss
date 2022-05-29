@@ -1,9 +1,9 @@
 .player {
-  min-height:20vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .time-control {
@@ -12,7 +12,7 @@
   text-align: center;
   margin-bottom: 30px;
   p {
-    margin-top: 50px; 
+    margin-top: 50px;
     font-weight: 300;
     font-size: 14px;
     letter-spacing: 1px;
@@ -21,14 +21,41 @@
 
   input {
     width: 100%;
-    padding: 1rem 0rem;
+    background-color: transparent;
+    -webkit-appearance: none;
+    cursor: pointer;
+
+    &::-webkit-slider-runnable-track {
+      height: 3px;
+      background: #7e7e7e;
+      transition: all 0.3s ease;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: none;
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background: #e7e7e7;
+      margin-top: -3.5px;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover::-webkit-slider-runnable-track {
+      background: #dddddd;
+    }
   }
 }
 
 .play-control {
   display: flex;
-  justify-content:space-between;
-  align-items:center;
+  justify-content: space-between;
+  align-items: center;
   padding: 1em;
   width: 30%;
   svg {
@@ -41,7 +68,7 @@
 }
 .time-end {
   position: relative;
-  right: 30px;  
+  right: 30px;
 }
 
 .leftIonc {
